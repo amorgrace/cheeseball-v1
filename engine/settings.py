@@ -31,13 +31,22 @@ if not SECRET_KEY:
     raise ImproperlyConfigured("SECRET_KEY is not set in the environment.")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 
-ALLOWED_HOSTS = [
-    "cheeseball-v1-qfslq905b-amorgraces-projects.vercel.app",
-    "cheeseball-v1-q79qgyku8-amorgraces-projects.vercel.app"
-    "cheeseball-v1-git-master-amorgraces-projects.vercel.app"
-    'cheeseball-v1-q20u7v710-amorgraces-projects.vercel.app'
+DEFAULT_ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".vercel.app",
+]
+ENV_ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.getenv("ALLOWED_HOSTS", "").split(",")
+    if host.strip()
+]
+ALLOWED_HOSTS = DEFAULT_ALLOWED_HOSTS + ENV_ALLOWED_HOSTS
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app",
 ]
 
 
