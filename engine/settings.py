@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [
     "cheeseball-v1-qfslq905b-amorgraces-projects.vercel.app",
     "cheeseball-v1-q79qgyku8-amorgraces-projects.vercel.app"
     "cheeseball-v1-git-master-amorgraces-projects.vercel.app"
+    'cheeseball-v1-q20u7v710-amorgraces-projects.vercel.app'
 ]
 
 
