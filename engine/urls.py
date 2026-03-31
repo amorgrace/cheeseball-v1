@@ -18,7 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from .api import api
 
+def  welcome(request):
+    {
+        "message": "WELCOME TO CHEESEBALL API"
+    }
+
 urlpatterns = [
+    path('', welcome),
     path('admin/', admin.site.urls),
     path("api/", api.urls),
 ]
