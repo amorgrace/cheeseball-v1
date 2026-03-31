@@ -45,9 +45,19 @@ ENV_ALLOWED_HOSTS = [
 ]
 ALLOWED_HOSTS = DEFAULT_ALLOWED_HOSTS + ENV_ALLOWED_HOSTS
 
-CSRF_TRUSTED_ORIGINS = [
+DEFAULT_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://localhost:3000",
+    "https://127.0.0.1:3000",
     "https://*.vercel.app",
 ]
+ENV_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+    if origin.strip()
+]
+CSRF_TRUSTED_ORIGINS = DEFAULT_TRUSTED_ORIGINS + ENV_TRUSTED_ORIGINS
 
 
 # Application definition
