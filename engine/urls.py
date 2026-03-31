@@ -17,11 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .api import api
+from django.http import JsonResponse
 
 def  welcome(request):
-    {
-        "message": "WELCOME TO CHEESEBALL API"
-    }
+    return JsonResponse({ "message": "WELCOME TO CHEESEBALL API"})
 
 urlpatterns = [
     path('', welcome),
