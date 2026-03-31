@@ -35,6 +35,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "cheeseball-v1-qfslq905b-amorgraces-projects.vercel.app",
+    "cheeseball-v1-q79qgyku8-amorgraces-projects.vercel.app"
 ]
 
 
